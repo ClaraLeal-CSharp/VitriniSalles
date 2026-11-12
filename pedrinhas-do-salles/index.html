@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pedrinhas do Salles: acessórios artesanais com pedras, feitos com delicadeza."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Pedrinhas do Salles</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="site-header">
+        <div class="site-header__content">
+          <a
+            class="brand"
+            href="#inicio"
+            aria-label="Página inicial da Pedrinhas do Salles"
+          >
+            <span class="brand__eyebrow">Feito à mão</span>
+            <span class="brand__name" data-brand-name>Pedrinhas do Salles</span>
+          </a>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-navigation"
+          >
+            <span class="sr-only">Abrir menu</span
+            ><span class="menu-toggle__line"></span
+            ><span class="menu-toggle__line"></span>
+          </button>
+          <nav
+            id="site-navigation"
+            class="site-nav"
+            aria-label="Navegação principal"
+          >
+            <a href="#inicio">Início</a><a href="#catalogo">Catálogo</a
+            ><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section
+          id="inicio"
+          class="hero section-shell"
+          aria-labelledby="hero-title"
+        >
+          <div class="hero__content">
+            <p class="eyebrow">Pedras que contam histórias</p>
+            <h1 id="hero-title">
+              Peças artesanais feitas com pedras, personalidade e significado.
+            </h1>
+            <p class="hero__text" data-brand-description>
+              Acessórios artesanais com pedras, feitos com delicadeza.
+            </p>
+            <a class="button button--primary" href="#catalogo"
+              >Conheça o catálogo</a
+            >
+          </div>
+          <figure class="hero__image-frame">
+            <img
+              src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=85"
+              alt="Colares artesanais com pedras naturais"
+              width="1200"
+              height="1500"
+            />
+            <figcaption>Detalhes que acompanham quem você é.</figcaption>
+          </figure>
+        </section>
+
+        <section
+          id="catalogo"
+          class="featured section-shell"
+          aria-labelledby="featured-title"
+        >
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Seleção especial</p>
+              <h2 id="featured-title">Catálogo</h2>
+            </div>
+            <p>
+              Produtos demonstrativos para apresentar o catálogo. Os nomes,
+              preços e detalhes abaixo não representam produtos reais da marca.
+            </p>
+          </div>
+          <div class="catalog-controls" aria-label="Filtrar produtos por categoria">
+            <span class="catalog-controls__label">Filtrar por categoria</span>
+            <div class="catalog-filters" data-catalog-filters></div>
+          </div>
+          <p class="catalog-status" data-catalog-status aria-live="polite"></p>
+          <div class="product-grid" data-catalog-products></div>
+        </section>
+
+        <section
+          id="sobre"
+          class="about section-shell"
+          aria-labelledby="about-title"
+        >
+          <div class="about__image-frame">
+            <img
+              src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=85"
+              alt="Acessórios delicados dispostos sobre uma superfície clara"
+              width="1200"
+              height="1200"
+              loading="lazy"
+            />
+          </div>
+          <div class="about__content">
+            <p class="eyebrow">Sobre o fazer</p>
+            <h2 id="about-title">Um detalhe natural para tornar seu.</h2>
+            <p>
+              A Pedrinhas do Salles nasceu do encantamento pelos materiais
+              naturais e pelas histórias que carregamos. Cada peça é montada à
+              mão, com tempo, cuidado e atenção às pequenas particularidades de
+              cada pedra.
+            </p>
+            <p>
+              Este é um texto provisório, pronto para receber a história da
+              marca, da artesã e das inspirações que tornam cada criação única.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="contato"
+          class="contact section-shell"
+          aria-labelledby="contact-title"
+        >
+          <div class="contact__intro">
+            <p class="eyebrow">Vamos conversar</p>
+            <h2 id="contact-title">Encontre a peça que fala com você.</h2>
+            <p>
+              Para encomendas, dúvidas ou para acompanhar as novidades, entre em
+              contato.
+            </p>
+          </div>
+          <div class="contact__links">
+            <a
+              class="contact-card"
+              data-contact-link="whatsapp"
+              href="#"
+              aria-label="Contato pelo WhatsApp"
+              ><span class="contact-card__label">WhatsApp</span
+              ><span class="contact-card__value" data-contact-label="whatsapp"
+                >Em breve</span
+              ><span class="contact-card__arrow" aria-hidden="true">↗</span></a
+            >
+            <a
+              class="contact-card"
+              data-contact-link="instagram"
+              href="#"
+              aria-label="Perfil no Instagram"
+              ><span class="contact-card__label">Instagram</span
+              ><span class="contact-card__value" data-contact-label="instagram"
+                >@pedrinhasdosalles</span
+              ><span class="contact-card__arrow" aria-hidden="true">↗</span></a
+            >
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="site-footer__content">
+          <div>
+            <a class="brand brand--footer" href="#inicio"
+              ><span class="brand__name" data-brand-name
+                >Pedrinhas do Salles</span
+              ></a
+            >
+            <p data-brand-description>
+              Acessórios artesanais com pedras, feitos com delicadeza.
+            </p>
+          </div>
+          <nav class="footer-nav" aria-label="Navegação do rodapé">
+            <a href="#inicio">Início</a><a href="#catalogo">Catálogo</a
+            ><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+          </nav>
+          <div class="footer-contact">
+            <a
+              data-contact-link="whatsapp"
+              href="#"
+              data-contact-label="whatsapp"
+              >WhatsApp</a
+            ><a
+              data-contact-link="instagram"
+              href="#"
+              data-contact-label="instagram"
+              >Instagram</a
+            >
+          </div>
+        </div>
+        <p class="site-footer__copyright">
+          © <span data-current-year></span>
+          <span data-brand-name>Pedrinhas do Salles</span>
+        </p>
+      </footer>
+    </div>
+    <dialog class="product-modal" data-product-modal aria-labelledby="product-modal-title">
+      <div class="product-modal__content">
+        <button class="product-modal__close" type="button" data-modal-close aria-label="Fechar detalhes do produto"><span aria-hidden="true">×</span></button>
+        <div class="product-modal__gallery" data-modal-gallery></div>
+        <div class="product-modal__details">
+          <p class="eyebrow" data-modal-category></p>
+          <h2 id="product-modal-title" data-modal-name></h2>
+          <p class="product-modal__price" data-modal-price></p>
+          <p data-modal-description></p>
+          <dl class="product-specifications">
+            <div><dt>Materiais</dt><dd data-modal-materials></dd></div>
+            <div><dt>Dimensões</dt><dd data-modal-dimensions></dd></div>
+            <div><dt>Disponibilidade</dt><dd data-modal-availability></dd></div>
+          </dl>
+        </div>
+      </div>
+    </dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

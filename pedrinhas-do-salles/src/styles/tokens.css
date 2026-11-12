@@ -1,0 +1,38 @@
+:root {
+  /* Paleta da marca */
+  --color-lilac-pink: #eda2f7;
+  --color-lavender: #c0a3f7;
+  --color-mint: #a3f7b1;
+  --color-light-green: #cdf7a3;
+  --color-muted-purple: #9f83a2;
+  --color-deep-purple: #76507e;
+
+  /* Cores de interface */
+  --color-background: #fffcfa;
+  --color-text: #544657;
+  --color-white: #ffffff;
+  --color-border: color-mix(
+    in srgb,
+    var(--color-muted-purple) 28%,
+    transparent
+  );
+
+  --color-surface: #f8f1f4;
+  --color-surface-mint: #eff8ef;
+
+  --font-family-base: "DM Sans", "Segoe UI", sans-serif;
+  --font-family-display: "Fraunces", Georgia, serif;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+  --space-10: 5rem;
+  --space-12: 6rem;
+
+  --container-width: 76rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+}
