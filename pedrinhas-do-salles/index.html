@@ -45,6 +45,9 @@
             <a href="#inicio">Início</a><a href="#catalogo">Catálogo</a
             ><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
           </nav>
+          <button class="bag-toggle" type="button" data-bag-open aria-haspopup="dialog">
+            Sacola <span data-bag-count>0</span>
+          </button>
         </div>
       </header>
 
@@ -140,7 +143,7 @@
             <h2 id="contact-title">Encontre a peça que fala com você.</h2>
             <p>
               Para encomendas, dúvidas ou para acompanhar as novidades, entre em
-              contato.
+              contato. A finalização da compra é feita pelo WhatsApp.
             </p>
           </div>
           <div class="contact__links">
@@ -218,7 +221,25 @@
             <div><dt>Dimensões</dt><dd data-modal-dimensions></dd></div>
             <div><dt>Disponibilidade</dt><dd data-modal-availability></dd></div>
           </dl>
+          <div class="product-modal__actions">
+            <button class="button button--secondary" type="button" data-modal-add-to-bag></button>
+            <a class="button button--primary" data-modal-whatsapp target="_blank" rel="noopener">Tenho interesse</a>
+          </div>
         </div>
+      </div>
+    </dialog>
+    <dialog class="interest-bag" data-interest-bag aria-labelledby="interest-bag-title">
+      <div class="interest-bag__content">
+        <button class="interest-bag__close" type="button" data-bag-close aria-label="Fechar sacola"><span aria-hidden="true">×</span></button>
+        <p class="eyebrow">Sua seleção</p>
+        <h2 id="interest-bag-title">Sacola de interesses</h2>
+        <p class="interest-bag__notice">Sua compra será finalizada pelo WhatsApp.</p>
+        <ul class="interest-bag__items" data-bag-items></ul>
+        <p class="interest-bag__empty" data-bag-empty>Sua sacola está vazia.</p>
+        <div class="interest-bag__summary">
+          <span>Total estimado</span><strong data-bag-total>R$ 0,00</strong>
+        </div>
+        <a class="button button--primary interest-bag__send" data-bag-send target="_blank" rel="noopener">Enviar seleção pelo WhatsApp</a>
       </div>
     </dialog>
     <script type="module" src="/src/main.js"></script>

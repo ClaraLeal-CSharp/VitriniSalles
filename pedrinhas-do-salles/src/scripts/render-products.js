@@ -1,4 +1,5 @@
 import { products } from "../data/products.js";
+import { createWhatsappLink } from "./brand-content.js";
 
 const categories = ["Todos", "Colares", "Pingentes", "Conjuntos", "Outros"];
 const currency = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
@@ -53,11 +54,21 @@ function createProductCard(product) {
   content.append(detail);
   button.append(content);
   article.append(button);
+  const actions = document.createElement("div");
+  actions.className = "product-card__actions";
+  const add = document.createElement("button");
+  add.className = "product-card__add";
+  add.type = "button";
+  add.dataset.addToBag = product.id;
+  add.textContent = product.disponivel ? "Adicionar à sacola" : "Indisponível";
+  add.disabled = !product.disponivel;
+  actions.append(add);
+  article.append(actions);
   return article;
 }
 
 /** Cria o catálogo uma vez e atualiza somente a visibilidade ao filtrar. */
-export function initializeProductCatalog() {
+export function initializeProductCatalog(interestBag) {
   const container = document.querySelector("[data-catalog-products]");
   const filterContainer = document.querySelector("[data-catalog-filters]");
   const status = document.querySelector("[data-catalog-status]");
@@ -111,13 +122,30 @@ export function initializeProductCatalog() {
     setText("[data-modal-availability]", product.disponivel ? "Disponível para consulta" : "Indisponível no momento");
     const gallery = modal.querySelector("[data-modal-gallery]");
     gallery.replaceChildren(...product.imagens.map((image, index) => createImage(image, `Fotografia demonstrativa ${index + 1} de ${product.nome}`, "product-modal__image")));
+    const addToBag = modal.querySelector("[data-modal-add-to-bag]");
+    addToBag.dataset.productId = product.id;
+    addToBag.textContent = product.disponivel ? "Adicionar à sacola" : "Indisponível";
+    addToBag.disabled = !product.disponivel;
+    const whatsapp = modal.querySelector("[data-modal-whatsapp]");
+    whatsapp.href = createWhatsappLink(`Olá! Tenho interesse no ${product.nome}. Gostaria de saber mais sobre ele.`);
+    whatsapp.hidden = !product.disponivel;
     modal.showModal();
     closeButton.focus();
   };
   container.addEventListener("click", (event) => {
+    const add = event.target.closest("button[data-add-to-bag]");
+    if (add) {
+      interestBag.add(add.dataset.addToBag);
+      add.textContent = "Adicionado à sacola";
+      return;
+    }
     const opener = event.target.closest("button[data-product-id]");
     const product = opener && productsById.get(opener.dataset.productId);
     if (product) openModal(product, opener);
+  });
+  modal.querySelector("[data-modal-add-to-bag]").addEventListener("click", (event) => {
+    interestBag.add(event.currentTarget.dataset.productId);
+    event.currentTarget.textContent = "Adicionado à sacola";
   });
   closeButton.addEventListener("click", () => modal.close());
   modal.addEventListener("click", (event) => { if (event.target === modal) modal.close(); });

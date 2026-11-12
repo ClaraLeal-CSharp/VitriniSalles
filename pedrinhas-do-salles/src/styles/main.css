@@ -80,6 +80,28 @@ button:focus-visible {
   background: transparent;
   cursor: pointer;
 }
+.bag-toggle {
+  min-height: 2.75rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 99rem;
+  background: var(--color-white);
+  color: var(--color-deep-purple);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.bag-toggle span {
+  display: inline-grid;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: 0.2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-deep-purple);
+  color: var(--color-white);
+  font-size: 0.6875rem;
+}
 .menu-toggle__line {
   width: 100%;
   height: 1px;
@@ -269,6 +291,33 @@ button:focus-visible {
   cursor: pointer;
   text-align: left;
 }
+.product-card__actions {
+  padding: 0 var(--space-3) var(--space-3);
+}
+.product-card__add,
+.interest-bag__item button {
+  min-height: 2.7rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--color-deep-purple);
+  background: transparent;
+  color: var(--color-deep-purple);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.product-card__add {
+  width: 100%;
+}
+.product-card__add:hover:not(:disabled),
+.interest-bag__item button:hover {
+  background: var(--color-deep-purple);
+  color: var(--color-white);
+}
+.product-card__add:disabled {
+  border-color: var(--color-border);
+  color: var(--color-muted-purple);
+  cursor: not-allowed;
+}
 .product-card__button:hover .text-link {
   color: var(--color-muted-purple);
 }
@@ -383,6 +432,30 @@ button:focus-visible {
 .product-modal__price {
   color: var(--color-muted-purple);
   font-weight: 600;
+}
+.product-modal__actions {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+.button--secondary {
+  margin-top: 0;
+  border: 1px solid var(--color-deep-purple);
+  background: transparent;
+  color: var(--color-deep-purple);
+  cursor: pointer;
+}
+.button--secondary:disabled {
+  border-color: var(--color-border);
+  color: var(--color-muted-purple);
+  cursor: not-allowed;
+}
+.product-modal__actions .button--primary {
+  margin-top: 0;
+}
+.product-modal__actions .button[hidden],
+.interest-bag__send[hidden] {
+  display: none;
 }
 .product-specifications {
   display: grid;
@@ -501,6 +574,84 @@ button:focus-visible {
   color: rgb(255 255 255 / 60%);
   font-size: 0.75rem;
 }
+.interest-bag {
+  width: min(100% - 2rem, 34rem);
+  padding: 0;
+  border: 0;
+  background: var(--color-white);
+  color: var(--color-text);
+}
+.interest-bag::backdrop {
+  background: rgb(56 43 58 / 62%);
+}
+.interest-bag__content {
+  position: relative;
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-6);
+}
+.interest-bag h2 {
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 7vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+.interest-bag__close {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-white);
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.interest-bag__notice {
+  color: var(--color-muted-purple);
+  font-size: 0.9375rem;
+}
+.interest-bag__items {
+  display: grid;
+  gap: var(--space-2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.interest-bag__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+.interest-bag__item span,
+.interest-bag__item small {
+  display: grid;
+}
+.interest-bag__item small {
+  color: var(--color-muted-purple);
+}
+.interest-bag__item button {
+  min-height: 2.25rem;
+}
+.interest-bag__empty {
+  color: var(--color-muted-purple);
+}
+.interest-bag__summary {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+}
+.interest-bag__send {
+  margin-top: 0;
+}
 @media (min-width: 42rem) {
   .section-shell,
   .site-header__content,
@@ -518,6 +669,9 @@ button:focus-visible {
     padding: 0;
     background: transparent;
     border: 0;
+  }
+  .bag-toggle {
+    margin-left: var(--space-2);
   }
   .site-nav a {
     padding: 0;

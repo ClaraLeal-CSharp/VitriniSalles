@@ -7,9 +7,4 @@ export const brand = Object.freeze({
   tagline: "Acessórios artesanais",
   description: "Acessórios artesanais com pedras, feitos com delicadeza.",
   locale: "pt-BR",
-  contact: {
-    // Atualize os endereços ao definir os canais oficiais da marca.
-    whatsapp: { label: "Fale pelo WhatsApp", href: "#contato" },
-    instagram: { label: "@pedrinhasdosalles", href: "#contato" },
-  },
 });
