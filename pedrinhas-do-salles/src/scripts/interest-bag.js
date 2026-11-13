@@ -55,7 +55,9 @@ export function initializeInterestBag() {
     total.textContent = currency.format(price);
     empty.hidden = selection.length > 0;
     send.hidden = selection.length === 0;
-    send.href = createWhatsappLink(selectionMessage());
+    const whatsappLink = createWhatsappLink(selectionMessage());
+    send.href = whatsappLink;
+    send.hidden = selection.length === 0 || !whatsappLink;
     countElements.forEach((element) => { element.textContent = selectedIds.size; });
   };
   const add = (productId) => {

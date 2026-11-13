@@ -12,6 +12,11 @@ function createImage(source, alt, className) {
   image.width = 1200;
   image.height = 1440;
   image.loading = "lazy";
+  image.decoding = "async";
+  image.sizes = "(min-width: 42rem) 30vw, 100vw";
+  image.srcset = [480, 768, 1200]
+    .map((width) => `${source.replace(/w=\d+/, `w=${width}`)} ${width}w`)
+    .join(", ");
   return image;
 }
 
@@ -33,6 +38,8 @@ function createProductCard(product) {
   heading.className = "product-card__heading";
   const name = document.createElement("span");
   name.className = "product-card__name";
+  name.setAttribute("role", "heading");
+  name.setAttribute("aria-level", "3");
   name.textContent = product.nome;
   const price = document.createElement("span");
   price.className = "product-card__price";
@@ -127,8 +134,9 @@ export function initializeProductCatalog(interestBag) {
     addToBag.textContent = product.disponivel ? "Adicionar à sacola" : "Indisponível";
     addToBag.disabled = !product.disponivel;
     const whatsapp = modal.querySelector("[data-modal-whatsapp]");
-    whatsapp.href = createWhatsappLink(`Olá! Tenho interesse no ${product.nome}. Gostaria de saber mais sobre ele.`);
-    whatsapp.hidden = !product.disponivel;
+    const whatsappLink = createWhatsappLink(`Olá! Tenho interesse no ${product.nome}. Gostaria de saber mais sobre ele.`);
+    whatsapp.href = whatsappLink;
+    whatsapp.hidden = !product.disponivel || !whatsappLink;
     modal.showModal();
     closeButton.focus();
   };

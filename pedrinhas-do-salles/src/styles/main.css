@@ -18,6 +18,10 @@ button:focus-visible {
   outline: 2px solid var(--color-muted-purple);
   outline-offset: 4px;
 }
+[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -215,12 +219,14 @@ button:focus-visible {
   line-height: 1.2;
 }
 .featured {
-  padding-block: var(--space-8);
+  padding: var(--space-8) var(--space-3);
   background: linear-gradient(
     135deg,
     color-mix(in srgb, var(--color-lavender) 22%, transparent),
     transparent 48%
   );
+  border: 1px solid color-mix(in srgb, var(--color-lavender) 32%, transparent);
+  border-radius: var(--radius-md);
 }
 .section-heading {
   display: grid;
@@ -652,6 +658,19 @@ button:focus-visible {
 .interest-bag__send {
   margin-top: 0;
 }
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
 @media (min-width: 42rem) {
   .section-shell,
   .site-header__content,
@@ -690,6 +709,9 @@ button:focus-visible {
     grid-template-columns: 1fr minmax(16rem, 0.6fr);
     align-items: end;
     gap: var(--space-4);
+  }
+  .featured {
+    padding: var(--space-10) clamp(var(--space-4), 5vw, var(--space-8));
   }
   .product-grid {
     grid-template-columns: repeat(3, 1fr);
