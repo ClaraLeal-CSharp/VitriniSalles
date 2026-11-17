@@ -4,20 +4,11 @@ import { createWhatsappLink } from "./brand-content.js";
 const categories = ["Todos", "Colares", "Pingentes", "Conjuntos", "Outros"];
 const currency = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
 
-function createImage(source, alt, className) {
-  const image = document.createElement("img");
-  image.className = className;
-  image.src = source;
-  image.alt = alt;
-  image.width = 1200;
-  image.height = 1440;
-  image.loading = "lazy";
-  image.decoding = "async";
-  image.sizes = "(min-width: 42rem) 30vw, 100vw";
-  image.srcset = [480, 768, 1200]
-    .map((width) => `${source.replace(/w=\d+/, `w=${width}`)} ${width}w`)
-    .join(", ");
-  return image;
+function createProductPlaceholder(className) {
+  const placeholder = document.createElement("div");
+  placeholder.className = className;
+  placeholder.setAttribute("aria-hidden", "true");
+  return placeholder;
 }
 
 function createProductCard(product) {
@@ -30,7 +21,7 @@ function createProductCard(product) {
   button.type = "button";
   button.dataset.productId = product.id;
   button.setAttribute("aria-label", `Ver detalhes de ${product.nome}`);
-  button.append(createImage(product.imagens[0], `Fotografia demonstrativa de ${product.nome}`, "product-card__image"));
+  button.append(createProductPlaceholder("product-card__placeholder"));
 
   const content = document.createElement("span");
   content.className = "product-card__content";
@@ -128,7 +119,7 @@ export function initializeProductCatalog(interestBag) {
     setText("[data-modal-dimensions]", product.dimensoes);
     setText("[data-modal-availability]", product.disponivel ? "Disponível para consulta" : "Indisponível no momento");
     const gallery = modal.querySelector("[data-modal-gallery]");
-    gallery.replaceChildren(...product.imagens.map((image, index) => createImage(image, `Fotografia demonstrativa ${index + 1} de ${product.nome}`, "product-modal__image")));
+    gallery.replaceChildren(createProductPlaceholder("product-modal__placeholder"));
     const addToBag = modal.querySelector("[data-modal-add-to-bag]");
     addToBag.dataset.productId = product.id;
     addToBag.textContent = product.disponivel ? "Adicionar à sacola" : "Indisponível";

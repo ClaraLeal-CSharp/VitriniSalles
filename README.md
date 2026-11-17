@@ -25,10 +25,10 @@ O resultado fica em `pedrinhas-do-salles/dist`.
 
 ## Conteúdo e imagens
 
-- Cadastre ou edite os produtos em [`src/data/products.js`](./pedrinhas-do-salles/src/data/products.js). Cada item aceita nome, categoria, preço, descrição, materiais, dimensões, disponibilidade e uma ou mais imagens.
+- Cadastre ou edite os produtos em [`src/data/products.js`](./pedrinhas-do-salles/src/data/products.js). Cada item aceita nome, categoria, preço, descrição, materiais, dimensões e disponibilidade.
 - Altere o WhatsApp e Instagram em [`src/data/contact.js`](./pedrinhas-do-salles/src/data/contact.js). O WhatsApp deve conter somente país e número, sem `+`, espaços ou pontuação. Enquanto os campos estiverem vazios, os links ficam desativados para evitar encaminhamento a dados provisórios.
 - Ajuste nome, título e descrição institucional em [`src/data/brand.js`](./pedrinhas-do-salles/src/data/brand.js).
-- Substitua as URLs demonstrativas de `imagens` em `src/data/products.js` por imagens próprias. As pastas [`public/images/produtos`](./pedrinhas-do-salles/public/images/produtos) e [`public/images/banners`](./pedrinhas-do-salles/public/images/banners) estão reservadas para arquivos locais; ao usar uma imagem nelas, informe o caminho como `/images/produtos/nome-do-arquivo.webp`.
+- O catálogo está deliberadamente sem fotografias até que a marca forneça as imagens reais. Os cards e o modal preservam seus espaços neutros; integre as fotografias oficiais posteriormente, sem usar imagens provisórias.
 - Atualize também os textos provisórios no bloco “Sobre” de [`index.html`](./pedrinhas-do-salles/index.html) antes de publicar.
 
 ## Vercel

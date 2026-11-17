@@ -165,6 +165,17 @@ button:focus-visible {
   margin-top: var(--space-3);
   font-size: 1.0625rem;
 }
+.hero__note {
+  max-width: 18rem;
+  margin-top: var(--space-4);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted-purple);
+  font-family: var(--font-family-display);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.25;
+}
 .button {
   display: inline-flex;
   align-items: center;
@@ -185,38 +196,6 @@ button:focus-visible {
 }
 .button--primary:hover {
   background: var(--color-text);
-}
-.hero__image-frame,
-.about__image-frame {
-  margin: 0;
-  overflow: hidden;
-  background: var(--color-surface);
-}
-.hero__image-frame {
-  position: relative;
-  min-height: 27rem;
-}
-.hero__image-frame img,
-.about__image-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.hero__image-frame img {
-  position: absolute;
-  inset: 0;
-}
-.hero__image-frame figcaption {
-  position: absolute;
-  right: var(--space-2);
-  bottom: var(--space-2);
-  max-width: 14rem;
-  padding: 0.65rem 0.8rem;
-  background: rgb(255 252 250 / 92%);
-  font-family: var(--font-family-display);
-  font-size: 0.95rem;
-  font-style: italic;
-  line-height: 1.2;
 }
 .featured {
   padding: var(--space-8) var(--space-3);
@@ -327,11 +306,14 @@ button:focus-visible {
 .product-card__button:hover .text-link {
   color: var(--color-muted-purple);
 }
-.product-card__image {
+.product-card__placeholder {
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
-  background: var(--color-surface);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-lavender) 18%, var(--color-surface)),
+    var(--color-surface)
+  );
 }
 .product-card__content {
   display: grid;
@@ -416,11 +398,14 @@ button:focus-visible {
   gap: 1px;
   background: var(--color-background);
 }
-.product-modal__image {
+.product-modal__placeholder {
   width: 100%;
   min-height: 20rem;
-  object-fit: cover;
-  background: var(--color-surface);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-lavender) 18%, var(--color-surface)),
+    var(--color-surface)
+  );
 }
 .product-modal__details {
   display: grid;
@@ -486,13 +471,11 @@ button:focus-visible {
 }
 .about {
   display: grid;
+  padding: var(--space-6) var(--space-3);
   background: var(--color-surface);
 }
-.about__image-frame {
-  min-height: 22rem;
-}
 .about__content {
-  padding: var(--space-6) var(--space-3);
+  max-width: 42rem;
 }
 .about__content > p:not(.eyebrow) {
   margin-top: var(--space-3);
@@ -696,14 +679,10 @@ button:focus-visible {
     padding: 0;
   }
   .hero {
-    grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.8fr);
+    grid-template-columns: minmax(0, 1fr);
     align-items: center;
-    gap: clamp(var(--space-4), 7vw, var(--space-10));
     min-height: calc(100svh - 4.75rem);
-    padding-block: var(--space-6);
-  }
-  .hero__image-frame {
-    min-height: min(39rem, 72svh);
+    padding-block: var(--space-10);
   }
   .section-heading {
     grid-template-columns: 1fr minmax(16rem, 0.6fr);
@@ -729,14 +708,10 @@ button:focus-visible {
     padding: var(--space-6);
   }
   .about {
-    grid-template-columns: 1fr 1fr;
-  }
-  .about__image-frame {
-    min-height: 34rem;
+    padding: clamp(var(--space-6), 8vw, var(--space-12));
   }
   .about__content {
     align-self: center;
-    padding: clamp(var(--space-6), 8vw, var(--space-12));
   }
   .contact {
     grid-template-columns: 1fr 1fr;
